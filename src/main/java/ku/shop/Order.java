@@ -22,6 +22,9 @@ public class Order {
     }
 
     public void addItem(Product prod, int quantity) {
+        if(prod.getQuantity()-quantity<0){
+            throw new IllegalArgumentException("Insufficient product left in stock");
+        }
         items.add(new OrderItem(prod, quantity));
     }
 
